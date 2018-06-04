@@ -1,0 +1,34 @@
+{
+  "name": "lors",
+  "version": "1.0.0",
+  "description": "🔄 Tiny script for loading styles or scripts asynchronously.",
+  "repository": "corneliusio/lors",
+  "bugs": {
+    "url": "https://github.com/corneliusio/lors/issues"
+  },
+  "author": {
+    "name": "Cornelius Ukena",
+    "email": "guy@cornelius.io"
+  },
+  "side-effects": false,
+  "main": "dist/lors.js",
+  "unpkg": "dist/lors.min.js",
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "eslint -c .eslintrc.json src/** --fix",
+    "build": "npm run lint && npm run clean && rollup --config rollup.config.js --environment NODE_ENV:production",
+    "prepublishOnly": "npm run build",
+    "precommit": "npm run lint"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-html": "^4.0.3",
+    "rollup": "^0.59.4",
+    "rollup-plugin-terser": "^1.0.1"
+  }
+}
